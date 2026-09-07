@@ -5,59 +5,151 @@ const contactPhoneHref = "tel:+16206061604";
 const contactEmail = "chrislaptopm@gmail.com";
 const contactEmailHref = "mailto:chrislaptopm@gmail.com";
 
-const personSchema = {
+const counties = [
+  "Coffey County",
+  "Osage County",
+  "Lyon County",
+  "Greenwood County",
+  "Woodson County",
+  "Allen County",
+  "Anderson County",
+];
+
+const towns = [
+  "Burlington",
+  "Emporia",
+  "Ottawa",
+  "Iola",
+  "Topeka",
+  "Wichita",
+  "Lawrence",
+  "Overland Park",
+  "Kansas City",
+  "Garnett",
+  "Yates Center",
+  "Eureka",
+];
+
+const services = [
+  {
+    title: "Affordable Small Business Websites",
+    body: "Hand-coded 3–6 page websites for Kansas small businesses. Fast, mobile-friendly, and priced local — not agency-priced.",
+  },
+  {
+    title: "Website Redesign & Cleanup",
+    body: "Got an old, slow, or clunky site? I rebuild it into a modern, fast-loading design that actually turns visitors into calls.",
+  },
+  {
+    title: "Local SEO Setup",
+    body: "Titles, descriptions, structured data, and Google Business Profile basics so people searching for your service in Kansas find you.",
+  },
+  {
+    title: "Landing Pages That Convert",
+    body: "One focused page built around a single action — call, book, or submit a form. Ideal for ads and campaigns.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How much does a cheap website cost in Kansas?",
+    a: "Far less than an agency. I work solo with no overhead, so Kansas small businesses get a hand-coded site at a low local price. Tell me your budget and I'll tell you honestly what fits it. Out-of-state projects add a flat $50 fee.",
+  },
+  {
+    q: "Do you only work in Coffey County?",
+    a: "No — Coffey County is home base, but I build websites for businesses anywhere in Kansas, including Emporia, Topeka, Wichita, Lawrence, Ottawa, Iola, and the Kansas City metro. Everything can be handled remotely or in person nearby.",
+  },
+  {
+    q: "How fast can my website be live?",
+    a: "Most small business sites go live in one to two weeks once I have your content. Single landing pages are often done in a few days.",
+  },
+];
+
+const businessSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Christopher S Murphy",
-  jobTitle: "Web Developer",
+  "@type": "ProfessionalService",
+  "@id": "/#business",
+  name: "Christopher S Murphy — Web Designer",
+  alternateName: "Christopher S Murphy Web Design",
+  description:
+    "Affordable web designer serving all of Kansas. Cheap, hand-coded small business websites, redesigns, and local SEO at a low local price. Out-of-state projects +$50.",
   url: "/",
   telephone: contactPhone,
   email: contactEmail,
+  priceRange: "$",
+  image: "/favicon.ico",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Coffey County",
+    addressLocality: "Burlington",
     addressRegion: "KS",
     addressCountry: "US",
   },
-  areaServed: {
-    "@type": "State",
-    name: "Kansas",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 38.1936,
+    longitude: -95.7422,
   },
-  description:
-    "Web developer for all of Kansas at a low local price. Fast, conversion-focused websites. Out-of-state projects +$50.",
+  founder: {
+    "@type": "Person",
+    name: "Christopher S Murphy",
+    jobTitle: "Web Developer",
+    telephone: contactPhone,
+    email: contactEmail,
+  },
+  knowsAbout: [
+    "Web design",
+    "Website development",
+    "Local SEO",
+    "Small business websites",
+  ],
+  areaServed: [
+    { "@type": "State", name: "Kansas" },
+    ...counties.map((name) => ({ "@type": "AdministrativeArea", name })),
+    ...towns.map((name) => ({ "@type": "City", name })),
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web design services in Kansas",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: s.title, description: s.body },
+    })),
+  },
 };
+
+const pageTitle = "Affordable Kansas Web Designer | Cheap Website Design";
+const pageDescription =
+  "Cheap, affordable website design in Kansas by Christopher S Murphy. Small business sites, redesigns & local SEO at a low local price. Call (620) 606-1604.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Christopher S Murphy — Web Developer | Kansas" },
+      { title: pageTitle },
+      { name: "description", content: pageDescription },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Hire Christopher S Murphy, a web developer in Kansas. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas at a low local price. Out-of-state projects +$50.",
+          "cheap website designer Kansas, affordable web designer Kansas, website designers in Kansas, low cost web design Coffey County, small business website Kansas",
       },
-      {
-        property: "og:title",
-        content: "Christopher S Murphy — Web Developer | Kansas",
-      },
-      {
-        property: "og:description",
-        content:
-          "Hire a web developer in Kansas at a low local price. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas. Out-of-state projects +$50.",
-      },
+      { name: "geo.region", content: "US-KS" },
+      { name: "geo.placename", content: "Burlington, Kansas" },
+      { property: "og:title", content: pageTitle },
+      { property: "og:description", content: pageDescription },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: pageDescription },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(personSchema),
+        children: JSON.stringify(businessSchema),
       },
     ],
   }),
   component: Index,
 });
+
 
 function Index() {
   return (
@@ -112,40 +204,35 @@ function Index() {
                 Now booking new builds
               </p>
 
-              <h1 className="mt-7 max-w-[20ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Web Developer for{" "}
+              <h1 className="mt-7 max-w-[22ch] text-balance text-4xl font-bold leading-[1.0] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Affordable{" "}
                 <span className="bg-gradient-to-r from-brand via-accent-light to-accent-chrome bg-clip-text text-transparent">
-                  all of Kansas
+                  Website Designer in Kansas
                 </span>{" "}
                 at a low local price
               </h1>
 
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-chrome/70">
-                I'm Christopher — I build fast, conversion-ready websites for
-                businesses anywhere in Kansas, with Coffey County and the
-                surrounding area as home base. Hand-coded, premium results
-                without the agency overhead. Out-of-state projects add a $50 fee.
+                I'm Christopher S Murphy — a Kansas web designer building fast,
+                cheap-to-own, conversion-ready websites for small businesses
+                anywhere in the state, with Coffey County as home base.
+                Hand-coded, premium results without agency overhead.
+                Out-of-state projects add a flat $50 fee.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                {[
-                  "All Kansas",
-                  "Coffey",
-                  "Osage",
-                  "Lyon",
-                  "Greenwood",
-                  "Woodson",
-                  "Allen",
-                  "Anderson",
-                ].map((county) => (
-                  <span
-                    key={county}
-                    className="rounded-md border border-chrome/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome/50"
-                  >
-                    {county}
-                  </span>
-                ))}
+                {["All Kansas", ...counties.map((c) => c.replace(" County", ""))].map(
+                  (county) => (
+                    <span
+                      key={county}
+                      className="rounded-md border border-chrome/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome/50"
+                    >
+                      {county}
+                    </span>
+                  ),
+                )}
               </div>
+
             </div>
 
             {/* Intake form */}
@@ -232,7 +319,119 @@ function Index() {
             </div>
           </div>
 
+          {/* Services */}
+          <section
+            aria-labelledby="services-heading"
+            className="mt-4 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
+              Services
+            </p>
+            <h2
+              id="services-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              Cheap website design in Kansas — without cheap results
+            </h2>
+            <p className="mt-4 max-w-2xl text-chrome/70">
+              Most Kansas small businesses don't need a $10,000 agency contract.
+              They need a clean, fast website that makes the phone ring. That's
+              exactly what I build, at a price that makes sense for a local
+              shop, contractor, or service business.
+            </p>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {services.map((s) => (
+                <article
+                  key={s.title}
+                  className="rounded-xl border border-chrome/15 bg-foreground/[0.04] p-6 transition hover:border-brand/40"
+                >
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-chrome/65">
+                    {s.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* Areas served */}
+          <section
+            aria-labelledby="areas-heading"
+            className="mt-20 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-chrome">
+              Areas served
+            </p>
+            <h2
+              id="areas-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              A local web designer for every county in Kansas
+            </h2>
+            <p className="mt-4 max-w-2xl text-chrome/70">
+              Based in Coffey County, Kansas and working statewide — in person
+              nearby, remote everywhere else. Anything outside Kansas is welcome
+              too, with a flat $50 out-of-state fee added on top.
+            </p>
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-chrome/50">
+                  Counties
+                </h3>
+                <ul className="mt-3 space-y-1.5 text-sm text-chrome/70">
+                  {counties.map((c) => (
+                    <li key={c}>{c}, Kansas</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-chrome/50">
+                  Cities &amp; towns
+                </h3>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-chrome/70">
+                  {towns.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section
+            aria-labelledby="faq-heading"
+            className="mt-20 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
+              Common questions
+            </p>
+            <h2
+              id="faq-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              Pricing and process, straight up
+            </h2>
+            <div className="mt-8 max-w-3xl space-y-4">
+              {faqs.map((f) => (
+                <div
+                  key={f.q}
+                  className="rounded-xl border border-chrome/15 bg-foreground/[0.04] p-6"
+                >
+                  <h3 className="text-base font-semibold text-foreground">
+                    {f.q}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-chrome/65">
+                    {f.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* Direct contact */}
+
           <section
             aria-labelledby="contact-heading"
             className="relative mx-auto mt-20 max-w-3xl rounded-2xl border border-chrome/20 bg-gradient-to-br from-foreground/10 to-foreground/5 p-8 shadow-brand-glow backdrop-blur-xl sm:p-10"
