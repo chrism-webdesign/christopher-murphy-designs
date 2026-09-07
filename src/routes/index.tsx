@@ -3,20 +3,20 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Christopher S Murphy — Web Developer | Coffey County, KS" },
+      { title: "Christopher S Murphy — Web Developer | Kansas" },
       {
         name: "description",
         content:
-          "Hire a local web developer in Coffey County, Kansas. Fast, conversion-focused websites for Burlington, Lebo, Waverly and surrounding Kansas counties.",
+          "Hire a web developer in Kansas at a low local price. Fast, conversion-focused websites for Coffey County, surrounding counties, and all of Kansas. Out-of-state projects +$50.",
       },
       {
         property: "og:title",
-        content: "Christopher S Murphy — Web Developer | Coffey County, KS",
+        content: "Christopher S Murphy — Web Developer | Kansas",
       },
       {
         property: "og:description",
         content:
-          "Hire a local web developer in Coffey County, Kansas. Fast, conversion-focused websites for Burlington, Lebo, Waverly and surrounding Kansas counties.",
+          "Hire a web developer in Kansas at a low local price. Fast, conversion-focused websites for Coffey County, surrounding counties, and all of Kansas. Out-of-state projects +$50.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
