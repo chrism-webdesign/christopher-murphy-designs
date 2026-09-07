@@ -57,7 +57,7 @@ function Index() {
                 <span className="font-mono text-sm font-bold text-ink">CM</span>
               </div>
               <div className="leading-tight">
-                <p className="text-sm font-bold tracking-wide text-white">
+                <p className="text-sm font-bold tracking-wide text-foreground">
                   Christopher S Murphy
                 </p>
                 <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand/70">
@@ -79,7 +79,7 @@ function Index() {
                 Now booking new builds
               </p>
 
-              <h1 className="mt-7 max-w-[18ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-7xl">
+              <h1 className="mt-7 max-w-[18ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                 Web Developer for{" "}
                 <span className="bg-gradient-to-r from-brand via-accent-light to-accent-chrome bg-clip-text text-transparent">
                   Coffey County, Kansas
@@ -126,7 +126,7 @@ function Index() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
                   Lead intake
                 </p>
-                <h2 className="mt-3 text-2xl font-bold text-white">
+                <h2 className="mt-3 text-2xl font-bold text-foreground">
                   Free UI Concept Intake
                 </h2>
                 <p className="mt-2 text-sm text-chrome/60">
