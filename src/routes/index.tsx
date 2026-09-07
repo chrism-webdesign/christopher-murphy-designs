@@ -79,19 +79,19 @@ function Index() {
                 Now booking new builds
               </p>
 
-              <h1 className="mt-7 max-w-[18ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              <h1 className="mt-7 max-w-[20ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
                 Web Developer for{" "}
                 <span className="bg-gradient-to-r from-brand via-accent-light to-accent-chrome bg-clip-text text-transparent">
-                  Coffey County, Kansas
+                  all of Kansas
                 </span>{" "}
-                and the surrounding counties
+                at a low local price
               </h1>
 
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-chrome/70">
-                I'm Christopher — a local web developer building fast,
-                conversion-ready sites for businesses across Coffey County and
-                nearby Kansas counties. Hand-coded, premium results without the
-                agency overhead.
+                I'm Christopher — I build fast, conversion-ready websites for
+                businesses anywhere in Kansas, with Coffey County and the
+                surrounding area as home base. Hand-coded, premium results
+                without the agency overhead. Out-of-state projects add a $50 fee.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
