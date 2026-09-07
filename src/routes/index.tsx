@@ -232,8 +232,94 @@ function Index() {
             </div>
           </div>
 
+          {/* Direct contact */}
+          <section
+            aria-labelledby="contact-heading"
+            className="relative mx-auto mt-20 max-w-3xl rounded-2xl border border-chrome/20 bg-gradient-to-br from-foreground/10 to-foreground/5 p-8 shadow-brand-glow backdrop-blur-xl sm:p-10"
+          >
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-top-glow" />
+            <div className="text-center">
+              <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
+                Direct contact
+              </p>
+              <h2
+                id="contact-heading"
+                className="mt-3 text-2xl font-bold text-foreground sm:text-3xl"
+              >
+                Prefer to talk directly?
+              </h2>
+              <p className="mx-auto mt-3 max-w-lg text-chrome/70">
+                Call or text anytime. I reply fast and can walk through your
+                project on the spot.
+              </p>
+            </div>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <a
+                href={contactPhoneHref}
+                className="group flex items-center gap-4 rounded-xl border border-chrome/15 bg-ink/40 p-5 transition hover:border-brand/50 hover:bg-ink/60"
+              >
+                <div className="grid size-10 place-items-center rounded-full bg-brand/10 text-brand transition group-hover:bg-brand/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-chrome/50">
+                    Call or text
+                  </p>
+                  <p className="text-lg font-semibold text-foreground">
+                    (620) 606-1604
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href={contactEmailHref}
+                className="group flex items-center gap-4 rounded-xl border border-chrome/15 bg-ink/40 p-5 transition hover:border-accent-chrome/50 hover:bg-ink/60"
+              >
+                <div className="grid size-10 place-items-center rounded-full bg-accent-chrome/10 text-accent-chrome transition group-hover:bg-accent-chrome/20">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
+                </div>
+                <div className="text-left">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.15em] text-chrome/50">
+                    Email
+                  </p>
+                  <p className="text-lg font-semibold text-foreground">
+                    chrislaptopm@gmail.com
+                  </p>
+                </div>
+              </a>
+            </div>
+          </section>
+
           {/* Footer */}
-          <footer className="relative flex flex-col items-center justify-between gap-3 border-t border-chrome/10 pt-8 sm:flex-row">
+          <footer className="relative mt-20 flex flex-col items-center justify-between gap-3 border-t border-chrome/10 pt-8 sm:flex-row">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-chrome/40">
               © {new Date().getFullYear()} Christopher S Murphy — Coffey County,
               KS
