@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-ink font-display text-chrome antialiased">
+    <div className="dark min-h-screen bg-ink font-display text-chrome antialiased">
       {/* Ambient glows + grid texture */}
       <div className="relative overflow-hidden">
         <div
