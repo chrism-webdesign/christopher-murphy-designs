@@ -1,5 +1,32 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+const contactPhone = "620-606-1604";
+const contactPhoneHref = "tel:+16206061604";
+const contactEmail = "chrislaptopm@gmail.com";
+const contactEmailHref = "mailto:chrislaptopm@gmail.com";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Christopher S Murphy",
+  jobTitle: "Web Developer",
+  url: "/",
+  telephone: contactPhone,
+  email: contactEmail,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Coffey County",
+    addressRegion: "KS",
+    addressCountry: "US",
+  },
+  areaServed: {
+    "@type": "State",
+    name: "Kansas",
+  },
+  description:
+    "Web developer for all of Kansas at a low local price. Fast, conversion-focused websites. Out-of-state projects +$50.",
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -7,7 +34,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Hire a web developer in Kansas at a low local price. Fast, conversion-focused websites for Coffey County, surrounding counties, and all of Kansas. Out-of-state projects +$50.",
+          "Hire Christopher S Murphy, a web developer in Kansas. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas at a low local price. Out-of-state projects +$50.",
       },
       {
         property: "og:title",
@@ -16,12 +43,18 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Hire a web developer in Kansas at a low local price. Fast, conversion-focused websites for Coffey County, surrounding counties, and all of Kansas. Out-of-state projects +$50.",
+          "Hire a web developer in Kansas at a low local price. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas. Out-of-state projects +$50.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(personSchema),
+      },
+    ],
   }),
   component: Index,
 });
