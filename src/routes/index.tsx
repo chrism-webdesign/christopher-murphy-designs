@@ -5,59 +5,151 @@ const contactPhoneHref = "tel:+16206061604";
 const contactEmail = "chrislaptopm@gmail.com";
 const contactEmailHref = "mailto:chrislaptopm@gmail.com";
 
-const personSchema = {
+const counties = [
+  "Coffey County",
+  "Osage County",
+  "Lyon County",
+  "Greenwood County",
+  "Woodson County",
+  "Allen County",
+  "Anderson County",
+];
+
+const towns = [
+  "Burlington",
+  "Emporia",
+  "Ottawa",
+  "Iola",
+  "Topeka",
+  "Wichita",
+  "Lawrence",
+  "Overland Park",
+  "Kansas City",
+  "Garnett",
+  "Yates Center",
+  "Eureka",
+];
+
+const services = [
+  {
+    title: "Affordable Small Business Websites",
+    body: "Hand-coded 3–6 page websites for Kansas small businesses. Fast, mobile-friendly, and priced local — not agency-priced.",
+  },
+  {
+    title: "Website Redesign & Cleanup",
+    body: "Got an old, slow, or clunky site? I rebuild it into a modern, fast-loading design that actually turns visitors into calls.",
+  },
+  {
+    title: "Local SEO Setup",
+    body: "Titles, descriptions, structured data, and Google Business Profile basics so people searching for your service in Kansas find you.",
+  },
+  {
+    title: "Landing Pages That Convert",
+    body: "One focused page built around a single action — call, book, or submit a form. Ideal for ads and campaigns.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How much does a cheap website cost in Kansas?",
+    a: "Far less than an agency. I work solo with no overhead, so Kansas small businesses get a hand-coded site at a low local price. Tell me your budget and I'll tell you honestly what fits it. Out-of-state projects add a flat $50 fee.",
+  },
+  {
+    q: "Do you only work in Coffey County?",
+    a: "No — Coffey County is home base, but I build websites for businesses anywhere in Kansas, including Emporia, Topeka, Wichita, Lawrence, Ottawa, Iola, and the Kansas City metro. Everything can be handled remotely or in person nearby.",
+  },
+  {
+    q: "How fast can my website be live?",
+    a: "Most small business sites go live in one to two weeks once I have your content. Single landing pages are often done in a few days.",
+  },
+];
+
+const businessSchema = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Christopher S Murphy",
-  jobTitle: "Web Developer",
+  "@type": "ProfessionalService",
+  "@id": "/#business",
+  name: "Christopher S Murphy — Web Designer",
+  alternateName: "Christopher S Murphy Web Design",
+  description:
+    "Affordable web designer serving all of Kansas. Cheap, hand-coded small business websites, redesigns, and local SEO at a low local price. Out-of-state projects +$50.",
   url: "/",
   telephone: contactPhone,
   email: contactEmail,
+  priceRange: "$",
+  image: "/favicon.ico",
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Coffey County",
+    addressLocality: "Burlington",
     addressRegion: "KS",
     addressCountry: "US",
   },
-  areaServed: {
-    "@type": "State",
-    name: "Kansas",
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 38.1936,
+    longitude: -95.7422,
   },
-  description:
-    "Web developer for all of Kansas at a low local price. Fast, conversion-focused websites. Out-of-state projects +$50.",
+  founder: {
+    "@type": "Person",
+    name: "Christopher S Murphy",
+    jobTitle: "Web Developer",
+    telephone: contactPhone,
+    email: contactEmail,
+  },
+  knowsAbout: [
+    "Web design",
+    "Website development",
+    "Local SEO",
+    "Small business websites",
+  ],
+  areaServed: [
+    { "@type": "State", name: "Kansas" },
+    ...counties.map((name) => ({ "@type": "AdministrativeArea", name })),
+    ...towns.map((name) => ({ "@type": "City", name })),
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Web design services in Kansas",
+    itemListElement: services.map((s) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name: s.title, description: s.body },
+    })),
+  },
 };
+
+const pageTitle = "Affordable Kansas Web Designer | Cheap Website Design";
+const pageDescription =
+  "Cheap, affordable website design in Kansas by Christopher S Murphy. Small business sites, redesigns & local SEO at a low local price. Call (620) 606-1604.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Christopher S Murphy — Web Developer | Kansas" },
+      { title: pageTitle },
+      { name: "description", content: pageDescription },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Hire Christopher S Murphy, a web developer in Kansas. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas at a low local price. Out-of-state projects +$50.",
+          "cheap website designer Kansas, affordable web designer Kansas, website designers in Kansas, low cost web design Coffey County, small business website Kansas",
       },
-      {
-        property: "og:title",
-        content: "Christopher S Murphy — Web Developer | Kansas",
-      },
-      {
-        property: "og:description",
-        content:
-          "Hire a web developer in Kansas at a low local price. Call (620) 606-1604 or email chrislaptopm@gmail.com. Fast, conversion-focused websites for all of Kansas. Out-of-state projects +$50.",
-      },
+      { name: "geo.region", content: "US-KS" },
+      { name: "geo.placename", content: "Burlington, Kansas" },
+      { property: "og:title", content: pageTitle },
+      { property: "og:description", content: pageDescription },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:title", content: pageTitle },
+      { name: "twitter:description", content: pageDescription },
     ],
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify(personSchema),
+        children: JSON.stringify(businessSchema),
       },
     ],
   }),
   component: Index,
 });
+
 
 function Index() {
   return (
