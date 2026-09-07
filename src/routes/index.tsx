@@ -204,40 +204,35 @@ function Index() {
                 Now booking new builds
               </p>
 
-              <h1 className="mt-7 max-w-[20ch] text-balance text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Web Developer for{" "}
+              <h1 className="mt-7 max-w-[22ch] text-balance text-4xl font-bold leading-[1.0] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Affordable{" "}
                 <span className="bg-gradient-to-r from-brand via-accent-light to-accent-chrome bg-clip-text text-transparent">
-                  all of Kansas
+                  Website Designer in Kansas
                 </span>{" "}
                 at a low local price
               </h1>
 
               <p className="mt-7 max-w-xl text-lg leading-relaxed text-chrome/70">
-                I'm Christopher — I build fast, conversion-ready websites for
-                businesses anywhere in Kansas, with Coffey County and the
-                surrounding area as home base. Hand-coded, premium results
-                without the agency overhead. Out-of-state projects add a $50 fee.
+                I'm Christopher S Murphy — a Kansas web designer building fast,
+                cheap-to-own, conversion-ready websites for small businesses
+                anywhere in the state, with Coffey County as home base.
+                Hand-coded, premium results without agency overhead.
+                Out-of-state projects add a flat $50 fee.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
-                {[
-                  "All Kansas",
-                  "Coffey",
-                  "Osage",
-                  "Lyon",
-                  "Greenwood",
-                  "Woodson",
-                  "Allen",
-                  "Anderson",
-                ].map((county) => (
-                  <span
-                    key={county}
-                    className="rounded-md border border-chrome/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome/50"
-                  >
-                    {county}
-                  </span>
-                ))}
+                {["All Kansas", ...counties.map((c) => c.replace(" County", ""))].map(
+                  (county) => (
+                    <span
+                      key={county}
+                      className="rounded-md border border-chrome/15 px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.15em] text-chrome/50"
+                    >
+                      {county}
+                    </span>
+                  ),
+                )}
               </div>
+
             </div>
 
             {/* Intake form */}
