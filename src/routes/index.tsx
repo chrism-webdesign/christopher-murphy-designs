@@ -319,7 +319,119 @@ function Index() {
             </div>
           </div>
 
+          {/* Services */}
+          <section
+            aria-labelledby="services-heading"
+            className="mt-4 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
+              Services
+            </p>
+            <h2
+              id="services-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              Cheap website design in Kansas — without cheap results
+            </h2>
+            <p className="mt-4 max-w-2xl text-chrome/70">
+              Most Kansas small businesses don't need a $10,000 agency contract.
+              They need a clean, fast website that makes the phone ring. That's
+              exactly what I build, at a price that makes sense for a local
+              shop, contractor, or service business.
+            </p>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {services.map((s) => (
+                <article
+                  key={s.title}
+                  className="rounded-xl border border-chrome/15 bg-foreground/[0.04] p-6 transition hover:border-brand/40"
+                >
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-chrome/65">
+                    {s.body}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* Areas served */}
+          <section
+            aria-labelledby="areas-heading"
+            className="mt-20 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-accent-chrome">
+              Areas served
+            </p>
+            <h2
+              id="areas-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              A local web designer for every county in Kansas
+            </h2>
+            <p className="mt-4 max-w-2xl text-chrome/70">
+              Based in Coffey County, Kansas and working statewide — in person
+              nearby, remote everywhere else. Anything outside Kansas is welcome
+              too, with a flat $50 out-of-state fee added on top.
+            </p>
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-chrome/50">
+                  Counties
+                </h3>
+                <ul className="mt-3 space-y-1.5 text-sm text-chrome/70">
+                  {counties.map((c) => (
+                    <li key={c}>{c}, Kansas</li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-chrome/50">
+                  Cities &amp; towns
+                </h3>
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5 text-sm text-chrome/70">
+                  {towns.map((t) => (
+                    <li key={t}>{t}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section
+            aria-labelledby="faq-heading"
+            className="mt-20 border-t border-chrome/10 pt-20"
+          >
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
+              Common questions
+            </p>
+            <h2
+              id="faq-heading"
+              className="mt-3 max-w-3xl text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            >
+              Pricing and process, straight up
+            </h2>
+            <div className="mt-8 max-w-3xl space-y-4">
+              {faqs.map((f) => (
+                <div
+                  key={f.q}
+                  className="rounded-xl border border-chrome/15 bg-foreground/[0.04] p-6"
+                >
+                  <h3 className="text-base font-semibold text-foreground">
+                    {f.q}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-chrome/65">
+                    {f.a}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* Direct contact */}
+
           <section
             aria-labelledby="contact-heading"
             className="relative mx-auto mt-20 max-w-3xl rounded-2xl border border-chrome/20 bg-gradient-to-br from-foreground/10 to-foreground/5 p-8 shadow-brand-glow backdrop-blur-xl sm:p-10"
