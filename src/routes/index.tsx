@@ -96,6 +96,7 @@ function Index() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 {[
+                  "All Kansas",
                   "Coffey",
                   "Osage",
                   "Lyon",
