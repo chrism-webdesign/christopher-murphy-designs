@@ -53,7 +53,7 @@ function Index() {
           {/* Header */}
           <header className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-accent-chrome to-brand shadow-[0_0_24px_rgba(125,211,252,0.5)]">
+              <div className="grid size-9 place-items-center rounded-full bg-gradient-to-br from-accent-chrome to-brand shadow-brand-glow-sm">
                 <span className="font-mono text-sm font-bold text-ink">CM</span>
               </div>
               <div className="leading-tight">
@@ -119,7 +119,7 @@ function Index() {
               <form
                 action="https://formspree.io/f/mnpqgllv"
                 method="POST"
-                className="relative rounded-2xl border border-chrome/25 bg-gradient-to-br from-white/10 to-white/5 p-7 shadow-[0_30px_80px_-30px_rgba(125,211,252,0.4)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-8"
+                className="relative rounded-2xl border border-chrome/25 bg-gradient-to-br from-foreground/10 to-foreground/5 p-7 shadow-brand-glow backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-8"
               >
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-chrome via-brand to-transparent" />
 
@@ -148,7 +148,7 @@ function Index() {
                       type="text"
                       placeholder="Your Business Name"
                       required
-                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-white outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
+                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
                     />
                   </div>
                   <div>
@@ -163,7 +163,7 @@ function Index() {
                       name="current_website"
                       type="url"
                       placeholder="Current Website Link (Optional)"
-                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-white outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
+                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
                     />
                   </div>
                   <div>
@@ -179,14 +179,14 @@ function Index() {
                       type="email"
                       placeholder="Your Best Email"
                       required
-                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-white outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
+                      className="mt-2 w-full rounded-lg border border-chrome/20 bg-ink/60 px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-chrome/40 focus:border-brand focus:ring-2 focus:ring-brand/50"
                     />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="mt-7 w-full rounded-lg bg-gradient-to-r from-brand-light to-accent-chrome py-4 text-sm font-bold uppercase tracking-[0.12em] text-ink shadow-[0_12px_30px_-8px_rgba(232,121,249,0.6)] transition hover:brightness-110 active:scale-[0.99]"
+                  className="mt-7 w-full rounded-lg bg-gradient-to-r from-brand-light to-accent-chrome py-4 text-sm font-bold uppercase tracking-[0.12em] text-ink shadow-accent-glow transition hover:brightness-110 active:scale-[0.99]"
                 >
                   Generate My Free Layout Concept
                 </button>
