@@ -169,3 +169,10 @@
 html {
   scroll-behavior: smooth;
 }
+
+@utility bg-grid-chrome {
+  background-image:
+    linear-gradient(var(--color-chrome) / 0.25 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-chrome) / 0.25 1px, transparent 1px);
+  background-size: 44px 44px;
+}
