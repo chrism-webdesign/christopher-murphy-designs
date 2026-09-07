@@ -176,3 +176,15 @@ html {
     linear-gradient(90deg, var(--color-chrome) / 0.25 1px, transparent 1px);
   background-size: 44px 44px;
 }
+
+@utility shadow-brand-glow {
+  box-shadow: 0 30px 80px -30px color-mix(in oklab, var(--color-brand) 40%, transparent);
+}
+
+@utility shadow-brand-glow-sm {
+  box-shadow: 0 0 24px color-mix(in oklab, var(--color-brand) 50%, transparent);
+}
+
+@utility shadow-accent-glow {
+  box-shadow: 0 12px 30px -8px color-mix(in oklab, var(--color-accent-chrome) 60%, transparent);
+}
