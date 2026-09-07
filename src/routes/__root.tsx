@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Christopher S Murphy — Web Developer | Coffey County, KS" },
+     { name: 'google-site-verification', content: 'AtEvXNo_CCQM6h2gjDF0OFrHnGyBqTFqajecAivZftM' },
       {
         name: "description",
         content:
