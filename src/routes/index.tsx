@@ -121,7 +121,7 @@ function Index() {
                 method="POST"
                 className="relative rounded-2xl border border-chrome/25 bg-gradient-to-br from-foreground/10 to-foreground/5 p-7 shadow-brand-glow backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 sm:p-8"
               >
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-chrome via-brand to-transparent" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-top-glow" />
 
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-brand">
                   Lead intake

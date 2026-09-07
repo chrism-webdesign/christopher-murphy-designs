@@ -188,3 +188,7 @@ html {
 @utility shadow-accent-glow {
   box-shadow: 0 12px 30px -8px color-mix(in oklab, var(--color-accent-chrome) 60%, transparent);
 }
+
+@utility bg-top-glow {
+  background: linear-gradient(90deg, transparent, var(--color-brand), var(--color-accent-chrome), transparent);
+}
